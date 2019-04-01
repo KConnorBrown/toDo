@@ -4,13 +4,53 @@
 <style>
 
 body {
- background-image: url('https://raw.githubusercontent.com/KConnorBrown/KConnorBrown.github.io/master/images/Macaondo.png');
- background-size: contain no-repeat;
- background-color: #cccccc;
+    background-image: url('https://raw.githubusercontent.com/KConnorBrown/toDo/master/toDoBG.png');
+    background-size: contain no-repeat;
+    background-color: #cccccc;
 }
+
+div.item {
+    position: relative;
+    left: 220px;
+    /* top: 50px; */
+    border: 3px solid #BBBBBB;
+}
+
+#topSpacer {
+    position: relative;
+    /* top: 5px; */
+    border: 3px solid #BBBBBB;
+    padding: 20px;
+}
+
+#datebox {
+    text-align: center;
+    position: relative;
+    /* left: 200px; */
+}
+
+
 </style>
 </head>
 <body>
-<h1>Hello</h1>
+    <div id="topSpacer"> </div>
+    <div id="datebox">
+        <span id="dateAndTime">Apr 1, 2019 at 2:10 am </span>
+    </div>
+
+    <div class="item" style="background-color:lightblue">
+        <h3>This is a heading in a div element</h3>
+        <p>This is some text in a div element.</p>
+    </div>
+
+    <div style="background-color:blue">
+        <h3>This is a heading in a div element</h3>
+        <p>This is some text in a div element.</p>
+    </div>
+
+    <div style="background-color:lightblue">
+        <h3>This is a heading in a div element</h3>
+        <p>This is some text in a div element.</p>
+    </div>
 </body>
 </html>
