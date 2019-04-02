@@ -232,9 +232,9 @@ $(document).ready(function() {
                 deleting = false;
                 // writing = false;
                 if (numItems < 5 && !writing) {
-                    setTimeout(writingTypeWriter, 100);
+                    setTimeout(writingTypeWriter, 1000);
                 } else if (numItems > 4 && !deleting) {
-                    setTimeout(deletingTypeWriter, 100);
+                    setTimeout(deletingTypeWriter, 1000);
                 }
             }
     }
@@ -282,24 +282,24 @@ $(document).ready(function() {
                 writing = false;
                 // deleting = false;
                 if (numItems < 5 && !writing) {
-                    setTimeout(writingTypeWriter, 100);
+                    setTimeout(writingTypeWriter, 1000);
                 } else if (numItems > 4 && !deleting) {
-                    setTimeout(deletingTypeWriter, 100);
+                    setTimeout(deletingTypeWriter, 1000);
                 }
             }
         }
 
 if (filled) {
         if (!triggered){
-            setTimeout(deletingTypeWriter, 100);
+            setTimeout(deletingTypeWriter, 10000);
             triggered = true;
         }
         if (triggered){
             if (numItems < 5 && !writing) {
-                setTimeout(writingTypeWriter, 100);
+                setTimeout(writingTypeWriter, 1000);
             }
             if (numItems > Math.random()*6 && !deleting) {
-                setTimeout(deletingTypeWriter, 100);
+                setTimeout(deletingTypeWriter, 1000);
             }
         }
 }
