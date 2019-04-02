@@ -230,10 +230,10 @@ $(document).ready(function() {
             } else {
                 numItems -= 1;
                 deleting = false;
-                writing = false;
+                // writing = false;
                 if (numItems < 5 && !writing) {
                     setTimeout(writingTypeWriter, 100);
-                } else if (numItems > Math.random()*6 && !deleting) {
+                } else if (numItems > 4 && !deleting) {
                     setTimeout(deletingTypeWriter, 100);
                 }
             }
@@ -280,10 +280,10 @@ $(document).ready(function() {
                 setTimeout(writingTypeWriter, speed);
             } else {
                 writing = false;
-                deleting = false;
+                // deleting = false;
                 if (numItems < 5 && !writing) {
                     setTimeout(writingTypeWriter, 100);
-                } else if (numItems > Math.random()*6 && ! deleting) {
+                } else if (numItems > 4 && !deleting) {
                     setTimeout(deletingTypeWriter, 100);
                 }
             }
@@ -298,7 +298,7 @@ if (filled) {
             if (numItems < 5 && !writing) {
                 setTimeout(writingTypeWriter, 100);
             }
-            if (numItems > Math.random()*6 && ! deleting) {
+            if (numItems > Math.random()*6 && !deleting) {
                 setTimeout(deletingTypeWriter, 100);
             }
         }
