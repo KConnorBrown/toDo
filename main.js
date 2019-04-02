@@ -12,7 +12,8 @@ $(document).ready(function() {
 		"email back #class# prof about #work#",
 		"#call# #callable# #callabout#",
 		"finish working on #finishable#",
-		"#meal# with #mealable#"
+		"#meal# with #mealable#",
+        "do laundry"
 	],
 	"class": [
 		"cs15",
@@ -168,12 +169,59 @@ $(document).ready(function() {
 		"buy"
 	]
 }
-    for (var i = 1; i < 12; i++){
+
+    var filled = false;
+    for (var i = 1; i < 16; i++){
         var grammar = tracery.createGrammar(jsonObj);
     	var text = '  – ' + grammar.flatten('#origin#');
-    	$('#'+i.toString()).html(text);
+        if (i==1){
+            if (text.length > 25) {
+                $('#prev').html(text.slice(0,25)+'...');
+            } else {
+                $('#prev').html(text);
+            }
+        }
+        $('#'+i.toString()).html(text);
+        if (i== 15){
+            filled = true;
+        }
     }
 
+
+
     //remove some number of the short term items
+    if(filled){
+        var i = Math.floor(Math.random()*10);
+        console.log(i);
+        for(var j = i; j > 0; j--){
+            var id = (15 - j).toString();
+            document.getElementById(id).innerHTML = '';
+        }
+    }
+
+
+    // var i = 0;
+    // var speed = 50;
+    // function typeWriter() {
+    //   if (filled){
+    //      document.getElementById("storybox").innerHTML = "";
+    //      i = 0;
+    //      randomNumber = Math.floor(Math.random()*stories.length);
+    //      txt = stories[randomNumber];
+    //      filled = false;
+    //   }
+    //   if (i < txt.length) {
+    //     setTimeout(function(){
+    //     document.getElementById("storybox").innerHTML += txt.charAt(i);
+    //     i++;
+    //     }, 10);
+    //     setTimeout(typeWriter, speed);
+    //   } else {
+    //     filled = true;
+    //   }
+    // }
+    // typeWriter();
+
+
 
 });

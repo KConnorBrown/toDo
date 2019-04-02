@@ -15,14 +15,14 @@ body {
 
 div.item {
     position: relative;
-    left: 230px;
+    left: 235px;
     margin: 0px;
     padding: 0px;
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 400;
+    font-weight: 350;
     color: #454545;
     font-size: 14pt;
-    margin: 2.2px;
+    margin: 2.4px;
 }
 
 #datebox {
@@ -34,7 +34,7 @@ div.item {
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
     color: #969695;
-    font-size: 13pt;
+    font-size: 12pt;
 }
 
 div.listHeader {
@@ -43,23 +43,52 @@ div.listHeader {
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
     color: #454545;
-    font-size: 14pt;
+    font-size: 13.5pt;
+    margin-top: 75px;
     margin-bottom: 1.75px;
     font-weight: bold;
 }
 
+#prev {
+    position: absolute;
+    left: 35px;
+    top: 89px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    color: #969695;
+    font-size: 9pt;
+}
 
 
 #whileloop {
-    position: relative;
-    left: 220px;
+    position: absolute;
+    justify-content: center;
+    top: 600px;
 }
 
-#today {
-    margin-top: 60px;
+.pulsate {
+    -webkit-animation: pulsate 7s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    opacity: 0.5;
 }
+@-webkit-keyframes pulsate {
+    0% {
+        opacity: 0.25;
+    }
+    25%{
+        opacity: 0.75;
+    }
+    50% {
+        opacity: 1.0;
+    }
 
-
+    75% {
+        opacity: 0.75;
+    }
+    100% {
+        opacity: 0.25;
+    }
+}
 
 
 </style>
@@ -69,62 +98,59 @@ div.listHeader {
     <span id="dateAndTime"> </span>
     </div>
 <div class="listHeader">to do:</div>
-<!-- <div class="listHeader">keep thinking about...</div>
-    <div id='a'class="item">
-        This is some text in a div element.
-    </div>
-    <div id='b'class='item'>
-        This is some text in a div element.
-    </div>
-    <div id='c'class='item'>
-        This is some text in a div element.
-    </div>
-    <div id='d'class='item'>
-        This is some text in a div element.
-    </div>
-    <div id='e'class='item'>
-        This is some text in a div element.
-    </div>
-    <div id='f'class='item'>
-        This is some text in a div element.
-    </div>
-    <div id='g'class='item'>
-        This is some text in a div element.
-    </div> -->
-
-<div id='today' class="listHeader">today:</div>
+    <div id='prev'>hello what's up</div>
     <div id='1' class="item">
 
     </div>
     <div id='2' class='item'>
-        This is some text in a div element.
+
     </div>
     <div id='3' class='item'>
-        This is some text in a div element.
+
     </div>
     <div id='4' class='item'>
-        This is some text in a div element.
+
     </div>
     <div id='5' class='item'>
-        This is some text in a div element.
+
     </div>
     <div id='6' class='item'>
-        This is some text in a div element.
+
     </div>
     <div id='7' class='item'>
-        This is some text in a div element.
+
     </div>
     <div id='8' class='item'>
-        This is some text in a div element.
+
     </div>
     <div id='9' class='item'>
-        This is some text in a div element.
+
     </div>
     <div id='10' class='item'>
-        This is some text in a div element.
+
     </div>
     <div id='11' class='item'>
-        This is some text in a div element.
+
+    </div>
+    <div id='12' class='item'>
+
+    </div>
+    <div id='13' class='item'>
+
+    </div>
+    <div id='14' class='item'>
+
+    </div>
+    <div id='15' class='item'>
+
+    </div>
+
+    <div id='whileloop' class='item'>
+        <pre>
+while(something(toDo)) {
+    <span class='pulsate'>do(toDo.getNext());</span>
+}
+        </pre>
     </div>
 </body>
 <script src="jquery-1.11.2.min.js"></script>
@@ -140,6 +166,11 @@ if (d.getHours() > 11){
 var hour = d.getHours();
 if (hour > 12) {
     hour -= 12;
+}
+var min = d.getMinutes();
+min = 5;
+if (min < 10){
+    min = '0'+min;
 }
 var month = 'January';
 var m =  1 + d.getMonth();
@@ -167,7 +198,7 @@ if (m == 2) {
     month = 'December';
 }
 var dateAndTime = month + " " + d.getDate() + ", " + d.getFullYear()
-+ " at " + hour + ":" + d.getMinutes() + ampm;
++ " at " + hour + ":" + min + ampm;
 document.getElementById("dateAndTime").innerHTML = dateAndTime;
 })
 </script>
