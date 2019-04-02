@@ -188,40 +188,121 @@ $(document).ready(function() {
     }
 
 
-
+    var numItems = 15;
+    var initialComp = 0;
+    var emptyDivs = [];
     //remove some number of the short term items
     if(filled){
         var i = Math.floor(Math.random()*10);
-        console.log(i);
         for(var j = i; j > 0; j--){
             var id = (15 - j).toString();
-            document.getElementById(id).innerHTML = '';
+            document.getElementById(id).innerHTML = ' ';
+            emptyDivs.push(15-j);
         }
+        numItems -= i;
     }
 
+    var triggered = false;
+    var writing = false;
+    var deleting = false;
+    var speed = 100;
+    var i;
+    var rand;
+    function deletingTypeWriter() {
+            //find the item to delete
+            console.log(deleting);
+            if (!deleting){
+                rand = Math.floor(Math.random()*numItems);
+                while (emptyDivs.includes(rand)) {
+                    rand = Math.floor(Math.random()*numItems);
+                }
+                emptyDivs.push(rand);
+                i = document.getElementById(rand.toString()).innerHTML.length;
+                deleting = true;
+            }
 
-    // var i = 0;
-    // var speed = 50;
-    // function typeWriter() {
-    //   if (filled){
-    //      document.getElementById("storybox").innerHTML = "";
-    //      i = 0;
-    //      randomNumber = Math.floor(Math.random()*stories.length);
-    //      txt = stories[randomNumber];
-    //      filled = false;
-    //   }
-    //   if (i < txt.length) {
-    //     setTimeout(function(){
-    //     document.getElementById("storybox").innerHTML += txt.charAt(i);
-    //     i++;
-    //     }, 10);
-    //     setTimeout(typeWriter, speed);
-    //   } else {
-    //     filled = true;
-    //   }
-    // }
-    // typeWriter();
+            if (i > 0) {
+                setTimeout(function(){
+                    document.getElementById(rand.toString()).innerHTML = document.getElementById(rand.toString()).innerHTML.slice(0, i);
+                    i--;
+                }, 100);
+                setTimeout(deletingTypeWriter, speed);
+            } else {
+                numItems -= 1;
+                deleting = false;
+                writing = false;
+                if (numItems < 5 && !writing) {
+                    setTimeout(writingTypeWriter, 100);
+                } else if (numItems > Math.random()*6 && !deleting) {
+                    setTimeout(deletingTypeWriter, 100);
+                }
+            }
+    }
 
+   var shuffle = function (array) {
+
+   	var currentIndex = array.length;
+   	var temporaryValue, randomIndex;
+
+   	// While there remain elements to shuffle...
+   	while (0 !== currentIndex) {
+   		// Pick a remaining element...
+   		randomIndex = Math.floor(Math.random() * currentIndex);
+   		currentIndex -= 1;
+
+   		// And swap it with the current element.
+   		temporaryValue = array[currentIndex];
+   		array[currentIndex] = array[randomIndex];
+   		array[randomIndex] = temporaryValue;
+   	}
+
+   	return array;
+
+   };
+
+   var text;
+   var rand;
+        function writingTypeWriter() {
+            //find the item to write
+            if (!writing){
+                emptyDivs = shuffle(emptyDivs);
+                rand = emptyDivs.pop();
+                i = document.getElementById(rand.toString()).innerHTML.length;
+                var grammar = tracery.createGrammar(jsonObj);
+        	    text = '  – ' + grammar.flatten('#origin#');
+                writing = true;
+            }
+            if (i < text.length){
+                setTimeout(function(){
+                document.getElementById(rand.toString()).innerHTML += text.charAt(i);
+                i++;
+            }, 100);
+                setTimeout(writingTypeWriter, speed);
+            } else {
+                writing = false;
+                deleting = false;
+                if (numItems < 5 && !writing) {
+                    setTimeout(writingTypeWriter, 100);
+                } else if (numItems > Math.random()*6 && ! deleting) {
+                    setTimeout(deletingTypeWriter, 100);
+                }
+            }
+        }
+
+if (filled) {
+        if (!triggered){
+            setTimeout(deletingTypeWriter, 100);
+            triggered = true;
+        }
+        if (triggered){
+            if (numItems < 5 && !writing) {
+                setTimeout(writingTypeWriter, 100);
+            }
+            if (numItems > Math.random()*6 && ! deleting) {
+                setTimeout(deletingTypeWriter, 100);
+            }
+        }
+}
 
 
 });
