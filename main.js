@@ -205,12 +205,12 @@ $(document).ready(function() {
     var triggered = false;
     var writing = false;
     var deleting = false;
-    var speed = 100;
+    var speed = 120;
     var i;
     var rand;
     function deletingTypeWriter() {
             //find the item to delete
-            console.log(deleting);
+            console.log(writing);
             if (!deleting){
                 rand = Math.floor(Math.random()*numItems);
                 while (emptyDivs.includes(rand)) {
@@ -230,8 +230,8 @@ $(document).ready(function() {
             } else {
                 numItems -= 1;
                 deleting = false;
-                // writing = false;
-                if (numItems < 5 && !writing) {
+                writing = false;
+                if (numItems < 8 && !writing) {
                     setTimeout(writingTypeWriter, 1000);
                 } else if (numItems > 4 && !deleting) {
                     setTimeout(deletingTypeWriter, 1000);
@@ -264,6 +264,7 @@ $(document).ready(function() {
    var rand;
         function writingTypeWriter() {
             //find the item to write
+            console.log(deleting);
             if (!writing){
                 emptyDivs = shuffle(emptyDivs);
                 rand = emptyDivs.pop();
@@ -280,8 +281,8 @@ $(document).ready(function() {
                 setTimeout(writingTypeWriter, speed);
             } else {
                 writing = false;
-                // deleting = false;
-                if (numItems < 5 && !writing) {
+                deleting = false;
+                if (numItems < 8 && !writing) {
                     setTimeout(writingTypeWriter, 1000);
                 } else if (numItems > 4 && !deleting) {
                     setTimeout(deletingTypeWriter, 1000);
@@ -295,7 +296,7 @@ if (filled) {
             triggered = true;
         }
         if (triggered){
-            if (numItems < 5 && !writing) {
+            if (numItems < 8 && !writing) {
                 setTimeout(writingTypeWriter, 1000);
             }
             if (numItems > Math.random()*6 && !deleting) {
