@@ -157,6 +157,7 @@ $(document).ready(function() {
 		"breakfast"
 	],
 	"acquireable": [
+        "#items#, #items#, #items#, #items#",
 		"#items#, #items#, and #items#",
 		"#items#",
 		"#items# and #items#",
