@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <meta charset="utf-8">
+    <meta content="text/html">
+    <title>To Do List</title>
 <style>
 
 body {
@@ -12,7 +16,14 @@ body {
 div.item {
     position: relative;
     left: 220px;
-    border: 3px solid #BBBBBB;
+    margin: 0px;
+    padding: 0px;
+    /* font-family: 'Helvetica', sans-serif; */
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 400;
+    color: #454545;
+    font-size: 10pt;
+    margin: 2.2px;
 }
 
 #datebox {
@@ -21,9 +32,25 @@ div.item {
     margin-left: 201px;
     margin-top: 50px;
     margin-bottom: 10px;
-    font-family: 'Helvetica', sans-serif;
+    /* font-family: 'Helvetica-Neue', sans-serif; */
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
     color: #969695;
     font-size: 10pt;
+    /* font-weight: 200; */
+
+}
+
+div.listHeader {
+    position: relative;
+    left: 220px;
+    /* font-family: 'Helvetica', sans-serif; */
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    color: #454545;
+    font-size: 10pt;
+    margin-bottom: 1.5px;
+    font-weight: bold;
 }
 
 
@@ -33,28 +60,80 @@ div.item {
     left: 220px;
 }
 
+#today {
+    margin-top: 60px;
+}
+
+
+
 
 </style>
 </head>
 <body>
-    <!-- <div id="topSpacer"> </div> -->
+    <script src="../../libs/jquery-1.11.2.min.js"></script>
+	<script src="../../libs/tracery.js"></script>
+    <script src="main.js"></script>
+
     <div id="datebox">
-        <span id="dateAndTime">Apr 1, 2019 at 2:10 am </span>
+        <span id="dateAndTime">April 1, 2019 at 2:10 am </span>
+    </div>
+<div class="listHeader">to do:</div>
+<div class="listHeader">keep thinking about...</div>
+    <div id='a'class="item">
+        This is some text in a div element.
+    </div>
+    <div id='b'class='item'>
+        This is some text in a div element.
+    </div>
+    <div id='c'class='item'>
+        This is some text in a div element.
+    </div>
+    <div id='d'class='item'>
+        This is some text in a div element.
+    </div>
+    <div id='e'class='item'>
+        This is some text in a div element.
+    </div>
+    <div id='f'class='item'>
+        This is some text in a div element.
+    </div>
+    <div id='g'class='item'>
+        This is some text in a div element.
     </div>
 
-    <div class="item" style="background-color:lightblue">
-        <h3>This is a heading in a div element</h3>
-        <p>This is some text in a div element.</p>
+<div id='today' class="listHeader">today:</div>
+    <div id='1' class="item">
+        
     </div>
-
-    <div class='item' style="background-color:blue">
-        <h3>This is a heading in a div element</h3>
-        <p>This is some text in a div element.</p>
+    <div id='2' class='item'>
+        This is some text in a div element.
     </div>
-
-    <div class='item' style="background-color:lightblue">
-        <h3>This is a heading in a div element</h3>
-        <p>This is some text in a div element.</p>
+    <div id='3' class='item'>
+        This is some text in a div element.
+    </div>
+    <div id='4' class='item'>
+        This is some text in a div element.
+    </div>
+    <div id='5' class='item'>
+        This is some text in a div element.
+    </div>
+    <div id='6' class='item'>
+        This is some text in a div element.
+    </div>
+    <div id='7' class='item'>
+        This is some text in a div element.
+    </div>
+    <div id='8' class='item'>
+        This is some text in a div element.
+    </div>
+    <div id='9' class='item'>
+        This is some text in a div element.
+    </div>
+    <div id='10' class='item'>
+        This is some text in a div element.
+    </div>
+    <div id='11' class='item'>
+        This is some text in a div element.
     </div>
 </body>
 </html>
