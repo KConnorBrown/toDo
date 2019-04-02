@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
     <meta charset="utf-8">
@@ -15,10 +15,9 @@ body {
 
 div.item {
     position: relative;
-    left: 220px;
+    left: 230px;
     margin: 0px;
     padding: 0px;
-    /* font-family: 'Helvetica', sans-serif; */
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 400;
     color: #454545;
@@ -32,24 +31,20 @@ div.item {
     margin-left: 201px;
     margin-top: 50px;
     margin-bottom: 10px;
-    /* font-family: 'Helvetica-Neue', sans-serif; */
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
     color: #969695;
     font-size: 10pt;
-    /* font-weight: 200; */
-
 }
 
 div.listHeader {
     position: relative;
     left: 220px;
-    /* font-family: 'Helvetica', sans-serif; */
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
     color: #454545;
     font-size: 10pt;
-    margin-bottom: 1.5px;
+    margin-bottom: 1.75px;
     font-weight: bold;
 }
 
@@ -71,7 +66,7 @@ div.listHeader {
 </head>
 <body>
     <div id="datebox">
-        <span id="dateAndTime">April 1, 2019 at 2:10 am </span>
+    <span id="dateAndTime"> </span>
     </div>
 <div class="listHeader">to do:</div>
 <div class="listHeader">keep thinking about...</div>
@@ -135,4 +130,45 @@ div.listHeader {
 <script src="jquery-1.11.2.min.js"></script>
 <script src="tracery.js"></script>
 <script src="main.js"></script>
+<script>
+$(document).ready(function(){
+var d = new Date();
+var ampm = " AM";
+if (d.getHours() > 11){
+    ampm = " PM";
+}
+var hour = d.getHours();
+if (hour > 12) {
+    hour -= 12;
+}
+var month = 'January';
+var m =  1 + d.getMonth();
+if (m == 2) {
+    month = 'February';
+} else if (m == 3) {
+    month = 'March';
+} else if (m == 4) {
+    month = 'April';
+} else if (m == 5){
+    month = 'May';
+} else if (m == 6) {
+    month = 'June';
+} else if (m == 7) {
+    month = 'July';
+} else if (m == 8) {
+    month = 'August';
+} else if (m == 9) {
+    month = 'September';
+} else if (m == 10) {
+    month = 'October';
+} else if (m == 11) {
+    month = 'November';
+} else if (m == 12) {
+    month = 'December';
+}
+var dateAndTime = month + " " + d.getDate() + ", " + d.getFullYear()
++ " at " + hour + ":" + d.getMinutes() + ampm;
+document.getElementById("dateAndTime").innerHTML = dateAndTime;
+})
+</script>
 </html>
