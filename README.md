@@ -1,5 +1,5 @@
 
-[check it out!](https://kconnorbrown.github.io/toDoList/)
+[check it out!](https://kconnorbrown.github.io/toDo/)
 
 
 general idea:
